@@ -1,0 +1,1553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alfa Computer Support - Damak, Jhapa</title>
+    <meta name="description" content="Alfa Computer Support provides professional sales, installation, and repair services for computers, laptops, printers, CCTV cameras, networking equipment, and other IT devices in Damak, Jhapa, Nepal." />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+            color: #1a202c;
+            padding-top: 72px;
+        }
+
+        /* ===== SCROLLBAR ===== */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e2e8f0;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1a56db;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0f2b5e;
+        }
+
+        /* ===== COLORS ===== */
+        :root {
+            --primary: #1a56db;
+            --secondary: #0f2b5e;
+            --accent: #3b82f6;
+            --dark: #1a202c;
+            --light: #f8fafc;
+            --grayish: #64748b;
+            --white: #ffffff;
+        }
+
+        /* ===== UTILITY ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--secondary);
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--grayish);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 48px;
+            line-height: 1.7;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--primary);
+            color: #fff;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .btn-primary:hover {
+            background: var(--secondary);
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(26, 86, 219, 0.3);
+        }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            color: #fff;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: scale(1.05);
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            padding: 12px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+        }
+        .navbar.scrolled {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            padding: 8px 0;
+        }
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-decoration: none;
+        }
+        .navbar .logo span {
+            color: var(--primary);
+        }
+        .navbar .logo .comp {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+        }
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .lang-switch {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .lang-switch:hover {
+            background: var(--secondary);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.8rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        /* Mobile Nav */
+        .mobile-nav {
+            display: none;
+            flex-direction: column;
+            gap: 12px;
+            padding: 20px 0 12px;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 12px;
+        }
+        .mobile-nav.open {
+            display: flex;
+        }
+        .mobile-nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+        .mobile-nav a:hover,
+        .mobile-nav a.active {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+        }
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1920&q=80') center/cover no-repeat;
+            opacity: 0.2;
+        }
+        .hero .overlay {
+            position: relative;
+            z-index: 2;
+            padding: 40px 20px;
+        }
+        .hero .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(6px);
+            padding: 6px 20px;
+            border-radius: 50px;
+            color: #fff;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .hero h1 {
+            font-size: clamp(2.8rem, 8vw, 5rem);
+            font-weight: 900;
+            color: #fff;
+            line-height: 1.1;
+        }
+        .hero h1 span {
+            color: #60a5fa;
+        }
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 700px;
+            margin: 20px auto 36px;
+            line-height: 1.7;
+        }
+        .hero .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 60px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero-stats .stat {
+            color: #fff;
+        }
+        .hero-stats .stat .num {
+            font-size: 2rem;
+            font-weight: 800;
+        }
+        .hero-stats .stat .label {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            margin-top: 4px;
+        }
+
+        /* ===== WHY US ===== */
+        .why-us {
+            background: var(--white);
+        }
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .why-card {
+            text-align: center;
+            padding: 40px 24px;
+            background: #f8fafc;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        .why-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+            border-color: var(--primary);
+        }
+        .why-card .icon {
+            font-size: 3.2rem;
+            margin-bottom: 16px;
+            color: var(--primary);
+        }
+        .why-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 8px;
+        }
+        .why-card p {
+            color: var(--grayish);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ===== SERVICES ===== */
+        .services {
+            background: #f1f5f9;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .service-card {
+            background: var(--white);
+            padding: 24px 16px;
+            border-radius: 14px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            border: 2px solid transparent;
+        }
+        .service-card:hover {
+            transform: scale(1.04);
+            border-color: var(--primary);
+            box-shadow: 0 8px 30px rgba(26, 86, 219, 0.12);
+        }
+        .service-card .icon {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        .service-card h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        /* ===== PRODUCTS ===== */
+        .products {
+            background: var(--white);
+        }
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 28px;
+        }
+        .product-card {
+            background: #f8fafc;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+            border-color: var(--primary);
+        }
+        .product-card .img-placeholder {
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--primary);
+            background: #dbeafe;
+        }
+        .product-card .body {
+            padding: 20px 16px;
+        }
+        .product-card .body h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+        .product-card .body p {
+            font-size: 0.85rem;
+            color: var(--grayish);
+            margin: 6px 0 14px;
+        }
+        .product-card .body .btn-small {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 8px 22px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .product-card .body .btn-small:hover {
+            background: var(--secondary);
+        }
+
+        /* ===== CCTV ===== */
+        .cctv {
+            background: #f1f5f9;
+        }
+        .cctv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+        }
+        .cctv-feature {
+            background: var(--white);
+            padding: 30px 20px;
+            border-radius: 14px;
+            text-align: center;
+            border-top: 4px solid var(--primary);
+            transition: all 0.3s;
+        }
+        .cctv-feature:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+        }
+        .cctv-feature .icon {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+        .cctv-feature h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .cctv-cta {
+            margin-top: 48px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 48px 32px;
+            border-radius: 20px;
+            text-align: center;
+            color: #fff;
+        }
+        .cctv-cta h2 {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+        .cctv-cta p {
+            opacity: 0.85;
+            max-width: 500px;
+            margin: 0 auto 24px;
+        }
+        .cctv-cta .btn-white {
+            background: #fff;
+            color: var(--primary);
+            padding: 14px 36px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+        .cctv-cta .btn-white:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        /* ===== GALLERY ===== */
+        .gallery {
+            background: var(--white);
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .gallery-item {
+            background: #f1f5f9;
+            border-radius: 14px;
+            height: 180px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.4rem;
+            color: var(--primary);
+            transition: all 0.3s;
+            cursor: default;
+        }
+        .gallery-item:hover {
+            transform: scale(1.04);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        }
+        .gallery-item span {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-top: 8px;
+        }
+
+        /* ===== CONTACT ===== */
+        .contact {
+            background: #f1f5f9;
+        }
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+        }
+        .contact-form {
+            background: var(--white);
+            padding: 36px 32px;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+        .contact-form label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--secondary);
+            display: block;
+            margin-bottom: 4px;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border 0.3s;
+            margin-bottom: 18px;
+            font-family: inherit;
+        }
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.12);
+        }
+        .contact-form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        .contact-form .btn-primary {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .contact-info .info-card {
+            background: var(--white);
+            padding: 20px 24px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+        }
+        .contact-info .info-card .icon {
+            font-size: 1.8rem;
+            color: var(--primary);
+            width: 48px;
+            text-align: center;
+        }
+        .contact-info .info-card .text h4 {
+            font-weight: 600;
+            color: var(--secondary);
+            font-size: 0.95rem;
+        }
+        .contact-info .info-card .text p,
+        .contact-info .info-card .text a {
+            color: var(--grayish);
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+        .contact-info .info-card .text a:hover {
+            color: var(--primary);
+        }
+
+        .map-container {
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+            margin-top: 8px;
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 240px;
+            border: 0;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--secondary);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 60px 0 30px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1.5fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .footer h4 {
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        .footer .brand {
+            font-size: 1.6rem;
+            font-weight: 800;
+        }
+        .footer .brand span {
+            color: var(--accent);
+        }
+        .footer .brand .comp {
+            color: #fff;
+        }
+        .footer p {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-top: 8px;
+        }
+        .footer .socials {
+            display: flex;
+            gap: 14px;
+            margin-top: 16px;
+        }
+        .footer .socials a {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1.4rem;
+            transition: color 0.3s;
+        }
+        .footer .socials a:hover {
+            color: var(--accent);
+        }
+        .footer ul {
+            list-style: none;
+        }
+        .footer ul li {
+            margin-bottom: 8px;
+        }
+        .footer ul a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        .footer ul a:hover {
+            color: #fff;
+        }
+        .footer .copy {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 24px;
+            text-align: center;
+            font-size: 0.85rem;
+            opacity: 0.6;
+        }
+
+        /* ===== FLOATING CONTACT ===== */
+        .floating-btn {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 999;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: 60px;
+            padding: 16px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 8px 30px rgba(26, 86, 219, 0.35);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .floating-btn:hover {
+            transform: scale(1.08);
+            background: var(--secondary);
+            box-shadow: 0 12px 40px rgba(26, 86, 219, 0.45);
+        }
+        .floating-btn i {
+            font-size: 1.2rem;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+        .floating-btn .label {
+            display: inline;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hamburger {
+                display: block;
+            }
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+            .hero-stats .stat .num {
+                font-size: 1.5rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .floating-btn .label {
+                display: none;
+            }
+            .floating-btn {
+                padding: 16px;
+                border-radius: 60px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero .btn-group .btn-primary,
+            .hero .btn-group .btn-outline {
+                padding: 12px 24px;
+                font-size: 0.9rem;
+                width: 100%;
+                justify-content: center;
+            }
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .products-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .cctv-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ============================================================ -->
+    <!-- NAVBAR -->
+    <!-- ============================================================ -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="#" class="logo">
+                <span>Alfa</span><span class="comp">Computer</span>
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="active" data-key="nav.home">Home</a></li>
+                <li><a href="#about" data-key="nav.about">About</a></li>
+                <li><a href="#services" data-key="nav.services">Services</a></li>
+                <li><a href="#products" data-key="nav.products">Products</a></li>
+                <li><a href="#cctv" data-key="nav.cctv">CCTV</a></li>
+                <li><a href="#gallery" data-key="nav.gallery">Gallery</a></li>
+                <li><a href="#contact" data-key="nav.contact">Contact</a></li>
+                <li>
+                    <button class="lang-switch" id="langToggle">
+                        <i class="fas fa-globe"></i>
+                        <span id="langLabel">Nepali</span>
+                    </button>
+                </li>
+            </ul>
+
+            <button class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Nav -->
+        <div class="container" style="padding: 0 20px;">
+            <div class="mobile-nav" id="mobileNav">
+                <a href="#home" class="active" data-key="nav.home">Home</a>
+                <a href="#about" data-key="nav.about">About</a>
+                <a href="#services" data-key="nav.services">Services</a>
+                <a href="#products" data-key="nav.products">Products</a>
+                <a href="#cctv" data-key="nav.cctv">CCTV</a>
+                <a href="#gallery" data-key="nav.gallery">Gallery</a>
+                <a href="#contact" data-key="nav.contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============================================================ -->
+    <!-- HERO -->
+    <!-- ============================================================ -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="overlay container">
+            <span class="badge">🏆 <span data-key="hero.badge">Trusted Since 2020</span></span>
+            <h1><span data-key="hero.title">Alfa Computer Support</span></h1>
+            <p data-key="hero.subtitle">Your Trusted Computer, Laptop, Printer &amp; CCTV Sales and Service Center in Damak</p>
+            <div class="btn-group">
+                <a href="#contact" class="btn-primary">
+                    <i class="fas fa-phone"></i> <span data-key="hero.btn1">Contact Now</span>
+                </a>
+                <a href="#services" class="btn-outline">
+                    <span data-key="hero.btn2">Our Services</span> <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="num">500+</div>
+                    <div class="label" data-key="stat.clients">Happy Clients</div>
+                </div>
+                <div class="stat">
+                    <div class="num">1000+</div>
+                    <div class="label" data-key="stat.services">Services Done</div>
+                </div>
+                <div class="stat">
+                    <div class="num">50+</div>
+                    <div class="label" data-key="stat.cctv">CCTV Installed</div>
+                </div>
+                <div class="stat">
+                    <div class="num">4.9</div>
+                    <div class="label" data-key="stat.rating">Rating</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- WHY US (Home) -->
+    <!-- ============================================================ -->
+    <section class="why-us section-padding" id="about">
+        <div class="container">
+            <h2 class="section-title" data-key="about.title">About Us</h2>
+            <p class="section-subtitle" data-key="about.desc">
+                Alfa Computer Support provides professional sales, installation, and repair services for computers, laptops, printers, CCTV cameras, networking equipment, and other IT devices. We are committed to delivering quality service and building long-term trust with our customers in Damak and across Jhapa.
+            </p>
+
+            <div class="why-grid">
+                <div class="why-card fade-in">
+                    <div class="icon"><i class="fas fa-bullseye"></i></div>
+                    <h3 data-key="about.mission">Our Mission</h3>
+                    <p data-key="about.missionText">To provide reliable, affordable, and professional IT solutions to homes and businesses in our community.</p>
+                </div>
+                <div class="why-card fade-in">
+                    <div class="icon"><i class="fas fa-eye"></i></div>
+                    <h3 data-key="about.vision">Our Vision</h3>
+                    <p data-key="about.visionText">To become the most trusted computer service center in eastern Nepal.</p>
+                </div>
+                <div class="why-card fade-in">
+                    <div class="icon"><i class="fas fa-handshake"></i></div>
+                    <h3 data-key="about.value">Our Values</h3>
+                    <p data-key="about.valueText">Integrity, quality, customer satisfaction, and professional excellence in every service we deliver.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SERVICES -->
+    <!-- ============================================================ -->
+    <section class="services section-padding" id="services">
+        <div class="container">
+            <h2 class="section-title" data-key="services.title">Our Services</h2>
+            <p class="section-subtitle" data-key="services.subtitle">Professional IT services tailored to your needs</p>
+
+            <div class="services-grid" id="servicesGrid">
+                <!-- Will be populated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- PRODUCTS -->
+    <!-- ============================================================ -->
+    <section class="products section-padding" id="products">
+        <div class="container">
+            <h2 class="section-title" data-key="products.title">Our Products</h2>
+            <p class="section-subtitle" data-key="products.subtitle">Quality products from trusted brands</p>
+
+            <div class="products-grid" id="productsGrid">
+                <!-- Will be populated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CCTV -->
+    <!-- ============================================================ -->
+    <section class="cctv section-padding" id="cctv">
+        <div class="container">
+            <h2 class="section-title" data-key="cctv.title">CCTV Solutions</h2>
+            <p class="section-subtitle" data-key="cctv.desc">
+                We provide end-to-end CCTV solutions for homes, offices, shops, and industrial spaces. From camera selection to installation and maintenance, we ensure your property stays secure 24/7.
+            </p>
+
+            <div class="cctv-grid" id="cctvGrid">
+                <!-- Will be populated by JS -->
+            </div>
+
+            <div class="cctv-cta">
+                <h2 data-key="cctv.ctaTitle">Need CCTV Installation?</h2>
+                <p data-key="cctv.ctaDesc">Contact us today for a free consultation and quote.</p>
+                <a href="tel:+9779709745292" class="btn-white">
+                    <i class="fas fa-phone"></i> <span data-key="cctv.ctaBtn">Call Now</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- GALLERY -->
+    <!-- ============================================================ -->
+    <section class="gallery section-padding" id="gallery">
+        <div class="container">
+            <h2 class="section-title" data-key="gallery.title">Our Gallery</h2>
+            <p class="section-subtitle" data-key="gallery.subtitle">Take a look at our work and products</p>
+
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Will be populated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CONTACT -->
+    <!-- ============================================================ -->
+    <section class="contact section-padding" id="contact">
+        <div class="container">
+            <h2 class="section-title" data-key="contact.title">Contact Us</h2>
+            <p class="section-subtitle" data-key="contact.subtitle">Get in touch with us</p>
+
+            <div class="contact-wrapper">
+                <!-- Form -->
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <label data-key="contact.form.name">Your Name</label>
+                        <input type="text" id="formName" placeholder="Your Name" />
+
+                        <label data-key="contact.form.email">Your Email</label>
+                        <input type="email" id="formEmail" placeholder="Your Email" />
+
+                        <label data-key="contact.form.subject">Subject</label>
+                        <input type="text" id="formSubject" placeholder="Subject" />
+
+                        <label data-key="contact.form.message">Message</label>
+                        <textarea id="formMessage" placeholder="Your Message"></textarea>
+
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-paper-plane"></i> <span data-key="contact.form.send">Send Message</span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Info -->
+                <div class="contact-info">
+                    <div class="info-card">
+                        <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="text">
+                            <h4 data-key="contact.addressLabel">Address</h4>
+                            <p data-key="contact.address">Damak-5, Campus Mode, Jhapa, Nepal</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="icon"><i class="fas fa-phone"></i></div>
+                        <div class="text">
+                            <h4 data-key="contact.phoneLabel">Phone</h4>
+                            <a href="tel:+9779709745292">9709745292</a>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="icon"><i class="fas fa-envelope"></i></div>
+                        <div class="text">
+                            <h4 data-key="contact.emailLabel">Email</h4>
+                            <a href="mailto:info@alfacomputer.com">info@alfacomputer.com</a>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="icon"><i class="fas fa-clock"></i></div>
+                        <div class="text">
+                            <h4 data-key="contact.hours">Business Hours</h4>
+                            <p data-key="contact.hoursDetail">Mon–Sat: 9:00 AM – 7:00 PM<br />Sunday: Closed</p>
+                        </div>
+                    </div>
+
+                    <!-- Map -->
+                    <div class="map-container">
+                        <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3571.88123456789!2d87.7!3d26.65!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e5b8b8b8b8b8b%3A0x1234567890abcdef!2sDamak%2C%20Nepal!5e0!3m2!1sen!2snp!4v1234567890123"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Google Map">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- FOOTER -->
+<!-- ============================================================ -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <div class="brand">
+                    <span>Alfa</span><span class="comp">Computer</span>
+                </div>
+                <p data-key="footer.desc">Your trusted partner for all IT solutions in Damak.</p>
+                <div class="socials">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 data-key="footer.quickLinks">Quick Links</h4>
+                <ul>
+                    <li><a href="#home" data-key="nav.home">Home</a></li>
+                    <li><a href="#about" data-key="nav.about">About</a></li>
+                    <li><a href="#services" data-key="nav.services">Services</a></li>
+                    <li><a href="#products" data-key="nav.products">Products</a></li>
+                    <li><a href="#cctv" data-key="nav.cctv">CCTV</a></li>
+                    <li><a href="#gallery" data-key="nav.gallery">Gallery</a></li>
+                    <li><a href="#contact" data-key="nav.contact">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 data-key="footer.contactLabel">Contact Info</h4>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt" style="color:var(--accent);margin-right:8px;"></i> <span data-key="footer.address">Damak-5, Campus Mode, Jhapa, Nepal</span></li>
+                    <li><i class="fas fa-phone" style="color:var(--accent);margin-right:8px;"></i> <a href="tel:+9779709745292" style="color:rgba(255,255,255,0.7);">9709745292</a></li>
+                    <li><i class="fas fa-envelope" style="color:var(--accent);margin-right:8px;"></i> <a href="mailto:info@alfacomputer.com" style="color:rgba(255,255,255,0.7);">info@alfacomputer.com</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 data-key="contact.hours">Business Hours</h4>
+                <ul>
+                    <li style="display:flex;justify-content:space-between;">
+                        <span data-key="footer.monSat">Mon–Sat</span>
+                        <span>9:00 AM – 7:00 PM</span>
+                    </li>
+                    <li style="display:flex;justify-content:space-between;">
+                        <span data-key="footer.sun">Sunday</span>
+                        <span style="color:#f87171;" data-key="footer.closed">Closed</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="copy">
+            <p>© 2026 Alfa Computer Support. <span data-key="footer.rights">All Rights Reserved.</span></p>
+        </div>
+    </div>
+</footer>
+
+<!-- ============================================================ -->
+<!-- FLOATING CONTACT BUTTON -->
+<!-- ============================================================ -->
+<a href="tel:+9779709745292" class="floating-btn" id="floatingBtn">
+    <i class="fas fa-phone"></i>
+    <span class="label" data-key="cta">Call Now</span>
+</a>
+
+<!-- ============================================================ -->
+<!-- JAVASCRIPT -->
+<!-- ============================================================ -->
+<script>
+    // =============================================================
+    // DATA
+    // =============================================================
+    const translations = {
+        en: {
+            'nav.home': 'Home',
+            'nav.about': 'About',
+            'nav.services': 'Services',
+            'nav.products': 'Products',
+            'nav.cctv': 'CCTV',
+            'nav.gallery': 'Gallery',
+            'nav.contact': 'Contact',
+            'hero.badge': 'Trusted Since 2020',
+            'hero.title': 'Alfa Computer Support',
+            'hero.subtitle': 'Your Trusted Computer, Laptop, Printer & CCTV Sales and Service Center in Damak',
+            'hero.btn1': 'Contact Now',
+            'hero.btn2': 'Our Services',
+            'stat.clients': 'Happy Clients',
+            'stat.services': 'Services Done',
+            'stat.cctv': 'CCTV Installed',
+            'stat.rating': 'Rating',
+            'about.title': 'About Us',
+            'about.desc': 'Alfa Computer Support provides professional sales, installation, and repair services for computers, laptops, printers, CCTV cameras, networking equipment, and other IT devices. We are committed to delivering quality service and building long-term trust with our customers in Damak and across Jhapa.',
+            'about.mission': 'Our Mission',
+            'about.missionText': 'To provide reliable, affordable, and professional IT solutions to homes and businesses in our community.',
+            'about.vision': 'Our Vision',
+            'about.visionText': 'To become the most trusted computer service center in eastern Nepal.',
+            'about.value': 'Our Values',
+            'about.valueText': 'Integrity, quality, customer satisfaction, and professional excellence in every service we deliver.',
+            'services.title': 'Our Services',
+            'services.subtitle': 'Professional IT services tailored to your needs',
+            'services.list': [
+                'Desktop Computer Repair', 'Laptop Repair', 'Printer Repair',
+                'CCTV Camera Installation', 'CCTV Maintenance',
+                'Computer & Laptop Sales', 'Printer Sales', 'CCTV Camera Sales',
+                'Networking Setup', 'Windows Installation', 'Software Installation',
+                'Virus Removal', 'Data Backup & Recovery', 'Annual Maintenance Service',
+                'Home & Office IT Support'
+            ],
+            'products.title': 'Our Products',
+            'products.subtitle': 'Quality products from trusted brands',
+            'products.list': [
+                'Desktop Computers', 'Laptops', 'Printers', 'CCTV Cameras',
+                'Computer Accessories', 'Networking Devices', 'UPS', 'Storage Devices'
+            ],
+            'cctv.title': 'CCTV Solutions',
+            'cctv.desc': 'We provide end-to-end CCTV solutions for homes, offices, shops, and industrial spaces. From camera selection to installation and maintenance, we ensure your property stays secure 24/7.',
+            'cctv.features': [
+                'High-definition cameras', 'Night vision & motion detection',
+                'Remote viewing via mobile', 'Durable & weatherproof',
+                'Expert installation', 'Annual maintenance contracts'
+            ],
+            'cctv.ctaTitle': 'Need CCTV Installation?',
+            'cctv.ctaDesc': 'Contact us today for a free consultation and quote.',
+            'cctv.ctaBtn': 'Call Now',
+            'gallery.title': 'Our Gallery',
+            'gallery.subtitle': 'Take a look at our work and products',
+            'gallery.items': [
+                'Computer Repair', 'Laptop Service', 'Printer Repair',
+                'CCTV Installation', 'Networking Setup', 'IT Support',
+                'Office Solutions', 'Home Setup'
+            ],
+            'contact.title': 'Contact Us',
+            'contact.subtitle': 'Get in touch with us',
+            'contact.addressLabel': 'Address',
+            'contact.address': 'Damak-5, Campus Mode, Jhapa, Nepal',
+            'contact.phoneLabel': 'Phone',
+            'contact.emailLabel': 'Email',
+            'contact.hours': 'Business Hours',
+            'contact.hoursDetail': 'Mon–Sat: 9:00 AM – 7:00 PM\nSunday: Closed',
+            'contact.form.name': 'Your Name',
+            'contact.form.email': 'Your Email',
+            'contact.form.subject': 'Subject',
+            'contact.form.message': 'Message',
+            'contact.form.send': 'Send Message',
+            'footer.desc': 'Your trusted partner for all IT solutions in Damak.',
+            'footer.quickLinks': 'Quick Links',
+            'footer.contactLabel': 'Contact Info',
+            'footer.address': 'Damak-5, Campus Mode, Jhapa, Nepal',
+            'footer.monSat': 'Mon–Sat',
+            'footer.sun': 'Sunday',
+            'footer.closed': 'Closed',
+            'footer.rights': 'All Rights Reserved.',
+            'cta': 'Call Now'
+        },
+        ne: {
+            'nav.home': 'गृह',
+            'nav.about': 'बारेमा',
+            'nav.services': 'सेवाहरू',
+            'nav.products': 'उत्पादनहरू',
+            'nav.cctv': 'CCTV',
+            'nav.gallery': 'ग्यालरी',
+            'nav.contact': 'सम्पर्क',
+            'hero.badge': '२०२० देखि विश्वसनीय',
+            'hero.title': 'अल्फा कम्प्युटर सपोर्ट',
+            'hero.subtitle': 'दमकमा तपाईंको भरपर्दो कम्प्युटर, ल्यापटप, प्रिन्टर र CCTV बिक्री तथा सेवा केन्द्र',
+            'hero.btn1': 'अहिले सम्पर्क गर्नुहोस्',
+            'hero.btn2': 'हाम्रा सेवाहरू',
+            'stat.clients': 'खुसी ग्राहक',
+            'stat.services': 'सेवाहरू सम्पन्न',
+            'stat.cctv': 'CCTV स्थापना',
+            'stat.rating': 'रेटिङ',
+            'about.title': 'हाम्रो बारेमा',
+            'about.desc': 'अल्फा कम्प्युटर सपोर्टले कम्प्युटर, ल्यापटप, प्रिन्टर, CCTV क्यामेरा, नेटवर्किङ उपकरण र अन्य IT उपकरणहरूको व्यावसायिक बिक्री, स्थापना र मर्मत सेवाहरू प्रदान गर्दछ। हामी दमक र झापा भरिका ग्राहकहरूसँग गुणस्तरीय सेवा र दीर्घकालीन विश्वास निर्माण गर्न प्रतिबद्ध छौं।',
+            'about.mission': 'हाम्रो उद्देश्य',
+            'about.missionText': 'हाम्रो समुदायका घर र व्यवसायहरूलाई भरपर्दो, किफायती र व्यावसायिक IT समाधानहरू प्रदान गर्ने।',
+            'about.vision': 'हाम्रो सपना',
+            'about.visionText': 'पूर्वी नेपालको सबैभन्दा विश्वसनीय कम्प्युटर सेवा केन्द्र बन्ने।',
+            'about.value': 'हाम्रो मूल्य',
+            'about.valueText': 'हामीले प्रदान गर्ने प्रत्येक सेवामा इमानदारी, गुणस्तर, ग्राहक सन्तुष्टि र व्यावसायिक उत्कृष्टता।',
+            'services.title': 'हाम्रा सेवाहरू',
+            'services.subtitle': 'तपाईंको आवश्यकता अनुसार व्यावसायिक IT सेवाहरू',
+            'services.list': [
+                'डेस्कटप कम्प्युटर मर्मत', 'ल्यापटप मर्मत', 'प्रिन्टर मर्मत',
+                'CCTV क्यामेरा स्थापना', 'CCTV मर्मतसम्भार',
+                'कम्प्युटर र ल्यापटप बिक्री', 'प्रिन्टर बिक्री', 'CCTV क्यामेरा बिक्री',
+                'नेटवर्किङ सेटअप', 'विन्डोज स्थापना', 'सफ्टवेयर स्थापना',
+                'भाइरस हटाउने', 'डाटा ब्याकअप र रिकभरी', 'वार्षिक मर्मत सेवा',
+                'घर र कार्यालय IT सहायता'
+            ],
+            'products.title': 'हाम्रा उत्पादनहरू',
+            'products.subtitle': 'विश्वसनीय ब्रान्डहरूबाट गुणस्तरीय उत्पादनहरू',
+            'products.list': [
+                'डेस्कटप कम्प्युटर', 'ल्यापटपहरू', 'प्रिन्टरहरू', 'CCTV क्यामेराहरू',
+                'कम्प्युटर एक्सेसरीज', 'नेटवर्किङ उपकरणहरू', 'UPS', 'स्टोरेज उपकरणहरू'
+            ],
+            'cctv.title': 'CCTV समाधानहरू',
+            'cctv.desc': 'हामी घर, कार्यालय, पसल र औद्योगिक स्थानहरूको लागि पूर्ण CCTV समाधानहरू प्रदान गर्दछौं। क्यामेरा चयनदेखि स्थापना र मर्मतसम्म, हामी तपाईंको सम्पत्ति २४/७ सुरक्षित राख्न सुनिश्चित गर्दछौं।',
+            'cctv.features': [
+                'उच्च-परिभाषा क्यामेराहरू', 'रात्रि दृष्टि र गति पत्ता लगाउने',
+                'मोबाइल मार्फत टाढाबाट हेर्ने', 'टिकाऊ र मौसम प्रतिरोधी',
+                'विशेषज्ञ स्थापना', 'वार्षिक मर्मत सम्झौताहरू'
+            ],
+            'cctv.ctaTitle': 'CCTV स्थापना चाहिन्छ?',
+            'cctv.ctaDesc': 'नि:शुल्क परामर्श र उद्धरणको लागि आजै सम्पर्क गर्नुहोस्।',
+            'cctv.ctaBtn': 'अहिले कल गर्नुहोस्',
+            'gallery.title': 'हाम्रो ग्यालरी',
+            'gallery.subtitle': 'हाम्रो काम र उत्पादनहरू हेर्नुहोस्',
+            'gallery.items': [
+                'कम्प्युटर मर्मत', 'ल्यापटप सेवा', 'प्रिन्टर मर्मत',
+                'CCTV स्थापना', 'नेटवर्किङ सेटअप', 'IT सहायता',
+                'कार्यालय समाधान', 'घर सेटअप'
+            ],
+            'contact.title': 'सम्पर्क गर्नुहोस्',
+            'contact.subtitle': 'हामीसँग सम्पर्क गर्नुहोस्',
+            'contact.addressLabel': 'ठेगाना',
+            'contact.address': 'दमक-५, क्याम्पस मोड, झापा, नेपाल',
+            'contact.phoneLabel': 'फोन',
+            'contact.emailLabel': 'इमेल',
+            'contact.hours': 'व्यापार समय',
+            'contact.hoursDetail': 'सोम–शनि: बिहान ९:०० – साँझ ७:००\nआइतबार: बन्द',
+            'contact.form.name': 'तपाईंको नाम',
+            'contact.form.email': 'तपाईंको इमेल',
+            'contact.form.subject': 'विषय',
+            'contact.form.message': 'सन्देश',
+            'contact.form.send': 'सन्देश पठाउनुहोस्',
+            'footer.desc': 'दमकमा सबै IT समाधानका लागि तपाईंको विश्वसनीय साझेदार।',
+            'footer.quickLinks': 'द्रुत लिङ्कहरू',
+            'footer.contactLabel': 'सम्पर्क जानकारी',
+            'footer.address': 'दमक-५, क्याम्पस मोड, झापा, नेपाल',
+            'footer.monSat': 'सोम–शनि',
+            'footer.sun': 'आइतबार',
+            'footer.closed': 'बन्द',
+            'footer.rights': 'सबै अधिकार सुरक्षित।',
+            'cta': 'अहिले कल गर्नुहोस्'
+        }
+    };
+
+    const serviceIcons = [
+        'fa-desktop', 'fa-laptop', 'fa-print',
+        'fa-video', 'fa-tools',
+        'fa-shopping-cart', 'fa-shopping-cart', 'fa-video',
+        'fa-network-wired', 'fa-windows', 'fa-code',
+        'fa-shield-virus', 'fa-database', 'fa-calendar-check',
+        'fa-home', 'fa-building'
+    ];
+
+    const productIcons = [
+        'fa-desktop', 'fa-laptop', 'fa-print', 'fa-video',
+        'fa-mouse', 'fa-server', 'fa-bolt', 'fa-hdd'
+    ];
+
+    const galleryIcons = [
+        'fa-desktop', 'fa-laptop', 'fa-print', 'fa-video',
+        'fa-server', 'fa-tools', 'fa-building', 'fa-home'
+    ];
+
+    const cctvIcons = [
+        'fa-camera', 'fa-moon', 'fa-mobile-alt',
+        'fa-shield-alt', 'fa-tools', 'fa-calendar-check'
+    ];
+
+    // =============================================================
+    // STATE
+    // =============================================================
+    let currentLang = 'en';
+
+    // =============================================================
+    // DOM REFS
+    // =============================================================
+    const langToggle = document.getElementById('langToggle');
+    const langLabel = document.getElementById('langLabel');
+    const navLinks = document.getElementById('navLinks');
+    const mobileNav = document.getElementById('mobileNav');
+    const hamburger = document.getElementById('hamburger');
+    const navbar = document.getElementById('navbar');
+
+    // =============================================================
+    // RENDER FUNCTIONS
+    // =============================================================
+    function renderServices() {
+        const grid = document.getElementById('servicesGrid');
+        const list = translations[currentLang]['services.list'];
+        grid.innerHTML = list.map((item, i) => `
+                <div class="service-card fade-in">
+                    <div class="icon"><i class="fas ${serviceIcons[i % serviceIcons.length]}"></i></div>
+                    <h4>${item}</h4>
+                </div>
+            `).join('');
+    }
+
+    function renderProducts() {
+        const grid = document.getElementById('productsGrid');
+        const list = translations[currentLang]['products.list'];
+        grid.innerHTML = list.map((item, i) => `
+                <div class="product-card fade-in">
+                    <div class="img-placeholder">
+                        <i class="fas ${productIcons[i % productIcons.length]}"></i>
+                    </div>
+                    <div class="body">
+                        <h4>${item}</h4>
+                        <p>${currentLang === 'en' ? 'Available in store' : 'पसलमा उपलब्ध'}</p>
+                        <button class="btn-small">${currentLang === 'en' ? 'Inquire Now' : 'अहिले सोध्नुहोस्'}</button>
+                    </div>
+                </div>
+            `).join('');
+    }
+
+    function renderCCTV() {
+        const grid = document.getElementById('cctvGrid');
+        const features = translations[currentLang]['cctv.features'];
+        grid.innerHTML = features.map((item, i) => `
+                <div class="cctv-feature fade-in">
+                    <div class="icon"><i class="fas ${cctvIcons[i % cctvIcons.length]}"></i></div>
+                    <h4>${item}</h4>
+                </div>
+            `).join('');
+    }
+
+    function renderGallery() {
+        const grid = document.getElementById('galleryGrid');
+        const items = translations[currentLang]['gallery.items'];
+        grid.innerHTML = items.map((item, i) => `
+                <div class="gallery-item fade-in">
+                    <i class="fas ${galleryIcons[i % galleryIcons.length]}"></i>
+                    <span>${item}</span>
+                </div>
+            `).join('');
+    }
+
+    function renderAll() {
+        // Update all elements with data-key
+        document.querySelectorAll('[data-key]').forEach(el => {
+            const key = el.getAttribute('data-key');
+            const val = translations[currentLang][key];
+            if (val !== undefined) {
+                el.textContent = val;
+            }
+        });
+
+        // Update language label
+        langLabel.textContent = currentLang === 'en' ? 'Nepali' : 'English';
+
+        // Update dynamic sections
+        renderServices();
+        renderProducts();
+        renderCCTV();
+        renderGallery();
+
+        // Update active nav link based on scroll
+        updateActiveNav();
+    }
+
+    // =============================================================
+    // NAVIGATION
+    // =============================================================
+    function updateActiveNav() {
+        const sections = ['home', 'about', 'services', 'products', 'cctv', 'gallery', 'contact'];
+        const scrollY = window.scrollY + 120;
+
+        let current = 'home';
+        sections.forEach(id => {
+            const el = document.getElementById(id);
+            if (el && el.offsetTop <= scrollY) {
+                current = id;
+            }
+        });
+
+        document.querySelectorAll('.nav-links a, .mobile-nav a').forEach(a => {
+            a.classList.remove('active');
+            if (a.getAttribute('href') === '#' + current) {
+                a.classList.add('active');
+            }
+        });
+    }
+
+    // =============================================================
+    // LANGUAGE TOGGLE
+    // =============================================================
+    function toggleLanguage() {
+        currentLang = currentLang === 'en' ? 'ne' : 'en';
+        localStorage.setItem('lang', currentLang);
+        renderAll();
+    }
+
+    // =============================================================
+    // MOBILE MENU
+    // =============================================================
+    hamburger.addEventListener('click', () => {
+        mobileNav.classList.toggle('open');
+        const icon = hamburger.querySelector('i');
+        if (mobileNav.classList.contains('open')) {
+            icon.className = 'fas fa-times';
+        } else {
+            icon.className = 'fas fa-bars';
+        }
+    });
+
+    // Close mobile nav on link click
+    mobileNav.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+            mobileNav.classList.remove('open');
+            hamburger.querySelector('i').className = 'fas fa-bars';
+        });
+    });
+
+    // =============================================================
+    // SCROLL EVENTS
+    // =============================================================
+    window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 20);
+        updateActiveNav();
+    });
+
+    // =============================================================
+    // CONTACT FORM
+    // =============================================================
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert(currentLang === 'en' ?
+            'Thank you! We will get back to you soon.' :
+            'धन्यवाद! हामी छिट्टै तपाईंलाई सम्पर्क गर्नेछौं।'
+        );
+        this.reset();
+    });
+
+    // =============================================================
+    // INIT
+    // =============================================================
+    // Load saved language
+    const saved = localStorage.getItem('lang');
+    if (saved === 'en' || saved === 'ne') {
+        currentLang = saved;
+    }
+
+    // Event listeners
+    langToggle.addEventListener('click', toggleLanguage);
+
+    // Initial render
+    renderAll();
+
+    // Trigger fade-in animations
+    setTimeout(() => {
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.animation = 'none';
+            el.offsetHeight;
+            el.style.animation = 'fadeInUp 0.8s ease forwards';
+        });
+    }, 100);
+
+    console.log('🚀 Alfa Computer Support website loaded successfully!');
+    console.log('📞 Call: 9709745292');
+</script>
+
+</body>
+</html>
