@@ -504,8 +504,10 @@
         <!-- HOME / HERO -->
         <section id="home" class="hero">
             <div class="hero-content">
-                <h1 data-lang="en">Professional Computer & CCTV Solutions</h1>
-                <h1 data-lang="np">व्यावसायिक कम्प्युटर र सिसिटिभी समाधान</h1>
+                <!-- Main heading: Alfa Computer Support -->
+                <h1 style="font-size:3.5rem; margin-bottom:0.2rem;">Alfa Computer Support</h1>
+                <p style="font-size:1.5rem; opacity:0.95; margin-bottom:0.5rem;" data-lang="en">Professional Computer &amp; CCTV Solutions</p>
+                <p style="font-size:1.5rem; opacity:0.95; margin-bottom:0.5rem;" data-lang="np">व्यावसायिक कम्प्युटर र सिसिटिभी समाधान</p>
                 <p data-lang="en">Reliable sales, repair, and networking in Damak, Jhapa.</p>
                 <p data-lang="np">डमक, झापामा विश्वसनीय बिक्री, मर्मत र नेटवर्किङ।</p>
                 <div class="btn-group">
@@ -618,12 +620,28 @@
 
     <script>
         // -------- PRODUCTS (images 1-29.jpeg) ---------
+        // Override first two images with custom names
         const productContainer = document.getElementById('productGrid');
         const categories = ['Laptops','Desktops','Printers','CCTV','Monitors','Keyboards','Mouse','UPS','Routers','SSD','RAM','Accessories'];
+        
+        // Custom image mapping: index 0 -> "2.jpg_1018.jpg", index 1 -> "(9).jpeg"
+        const customImages = {
+            0: '2.jpg_1018.jpg',
+            1: '(9).jpeg'
+        };
+
         for (let i = 1; i <= 29; i++) {
             const div = document.createElement('div');
             div.className = 'product-item';
-            div.innerHTML = `<img src="image-${i}.jpeg" alt="Product ${i}" onerror="this.src='https://placehold.co/200x200/e2e8f0/1e293b?text=Image+${i}'"> <span>${categories[i % categories.length]}</span>`;
+            let imgSrc;
+            if (i === 1) {
+                imgSrc = customImages[0];
+            } else if (i === 2) {
+                imgSrc = customImages[1];
+            } else {
+                imgSrc = `image-${i}.jpeg`;
+            }
+            div.innerHTML = `<img src="${imgSrc}" alt="Product ${i}" onerror="this.src='https://placehold.co/200x200/e2e8f0/1e293b?text=Image+${i}'"> <span>${categories[i % categories.length]}</span>`;
             productContainer.appendChild(div);
         }
 
@@ -631,9 +649,14 @@
         const galleryGrid = document.getElementById('galleryGrid');
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightboxImg');
+        // Use same custom images for gallery first two
         for (let i = 1; i <= 29; i++) {
             const img = document.createElement('img');
-            img.src = `image-${i}.jpeg`;
+            let src;
+            if (i === 1) src = customImages[0];
+            else if (i === 2) src = customImages[1];
+            else src = `image-${i}.jpeg`;
+            img.src = src;
             img.alt = `Gallery ${i}`;
             img.onerror = function() { this.src = 'https://placehold.co/200x200/e2e8f0/1e293b?text=Image+'+i; };
             img.addEventListener('click', function() {
